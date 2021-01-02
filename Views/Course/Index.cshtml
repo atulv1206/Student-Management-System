@@ -1,0 +1,41 @@
+﻿@model IEnumerable<StudentManagementSystem.Models.course>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", "Course", new { @class = "btn btn-success btn-large" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.course1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.duration)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.course1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.duration)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", "Course", new { id = item.id }, new { @class = "btn btn-success btn-large" })
+
+            @Html.ActionLink("Details", "Details", "Course", new { id = item.id }, new { @class = "btn btn-warning btn-large" })
+
+            @Html.ActionLink("Delete", "Delete", "Course", new { id = item.id }, new { @class = "btn btn-danger btn-large" })
+        </td>
+    </tr>
+}
+
+</table>

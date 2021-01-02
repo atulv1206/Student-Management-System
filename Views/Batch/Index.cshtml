@@ -1,0 +1,41 @@
+﻿@model IEnumerable<StudentManagementSystem.Models.batch>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", "Batch", new { @class = "btn btn-success btn-large" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.batch1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.year)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.batch1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.year)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", "Batch", new { id = item.id }, new { @class = "btn btn-success btn-large" })
+
+            @Html.ActionLink("Details", "Details", "Batch", new { id = item.id }, new { @class = "btn btn-warning btn-large" })
+
+            @Html.ActionLink("Delete", "Delete", "Batch", new { id = item.id }, new { @class = "btn btn-danger btn-large" })
+        </td>
+    </tr>
+}
+
+</table>

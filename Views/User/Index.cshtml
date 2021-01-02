@@ -1,0 +1,53 @@
+﻿@model IEnumerable<StudentManagementSystem.Models.user>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", "Branch", new { @class = "btn btn-success btn-large" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.username)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.password)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.firstname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.username)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.password)
+        </td>*@
+    <td>
+        @Html.ActionLink("Edit", "Edit", "User", new { id = item.id }, new { @class = "btn btn-success btn-large" })
+
+        @Html.ActionLink("Details", "Details", "User", new { id = item.id }, new { @class = "btn btn-warning btn-large" })
+
+        @Html.ActionLink("Delete", "Delete", "User", new { id = item.id }, new { @class = "btn btn-danger btn-large" })
+    </td>
+    </tr>
+}
+
+</table>

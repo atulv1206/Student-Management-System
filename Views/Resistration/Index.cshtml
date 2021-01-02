@@ -1,0 +1,65 @@
+﻿@model IEnumerable<StudentManagementSystem.Models.resistration>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", "Branch", new { @class = "btn btn-success btn-large" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.batch.batch1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.course.course1)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.firstname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.batch.batch1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.course.course1)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", "Resistration", new { id = item.id }, new { @class = "btn btn-success btn-large" })
+
+            @Html.ActionLink("Details", "Details", "Resistration", new { id = item.id }, new { @class = "btn btn-warning btn-large" })
+
+            @Html.ActionLink("Delete", "Delete", "Resistration", new { id = item.id }, new { @class = "btn btn-danger btn-large" })
+        </td>
+    </tr>
+}
+
+</table>
